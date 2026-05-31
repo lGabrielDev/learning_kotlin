@@ -1,4 +1,3 @@
-fun main(args: Array<String>) {
-   // testeeeeee
-   //zicaaaaa
+fun main(args: Array<String>){
+   println("Salve! conflito resolvido");
 }
