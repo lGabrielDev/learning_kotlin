@@ -49,7 +49,6 @@ fun main(args: Array<String>) {
 <hr>
 <br>
 
-
 ## Criando funcoes na enum
 
 
@@ -125,5 +124,30 @@ enum class TarefaOneClick(
     
     //methods
     fun isTarefaValid(tarefa: String): Boolean = TarefaOneClick.values().any { it -> tarefa == it.nome }
+}
+```
+
+
+<hr>
+<br>
+
+## Criando uma Classe, onde um dos attributes é do tipo/class enum
+
+```kotlin
+data class Person (
+    //attributes
+    var name: String,
+    var age: Int,
+    var gender: Gender? //dale
+){}
+```
+
+```kotlin
+fun main(args: Array<String>) {
+    val p1: Person = Person(
+        "goku",
+        33,
+        Gender.MALE
+    );
 }
 ```
