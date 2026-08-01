@@ -5,7 +5,7 @@ Antes de aprendermos a syntax da expressão lambda no Kotlin, vamos relembrar al
 <hr>
 <br>
 
-## Interfaces
+## Relembrando sobre Interfaces
 Interfaces são contratos que as classes devem seguir. Possuem methods sem corpo (obrigatórios de implementar) e methods com corpo (opcionais de sobrescrever).
 
 Um exemplo prático: seu chefe pede para você criar uma função / method. Ele sabe exatamente o que a função deve receber e retornar, mas não sabe como você vai implementar. Ele cria a interface com a declaração do method — o contrato. Você cria uma classe, implementa a interface e define o corpo do method.
