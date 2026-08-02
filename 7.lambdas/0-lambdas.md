@@ -5,58 +5,6 @@ Antes de aprendermos a syntax da expressão lambda no Kotlin, vamos relembrar al
 <hr>
 <br>
 
-## Relembrando sobre Interfaces
-Interfaces são contratos que as classes devem seguir. Possuem methods sem corpo (obrigatórios de implementar) e methods com corpo (opcionais de sobrescrever).
-
-Um exemplo prático: seu chefe pede para você criar uma função / method. Ele sabe exatamente o que a função deve receber e retornar, mas não sabe como você vai implementar. Ele cria a interface com a declaração do method — o contrato. Você cria uma classe, implementa a interface e define o corpo do method.
-
-<br>
-
-Na prática faríamos:
-
-
-1. Criamos a interface e definimos o comportamento das funcoes abstratas.
-    ```kotlin
-    fun interface MethodsInsanos { //fun significa que eh uma 'interface funcional'. Uma interface com apenas 1 method abstrato / method sem corpo
-        fun printComum(name: String): Unit;
-    }
-    ```
-
-<br>
-
-2. Criamos uma Classe para implementar a interface e sobreescrever o method. Para aí sim definir o corpo desse method.
-    ```kotlin
-    class Person(val name: String, val age: Int): MethodsInsanos {
-        override fun printComum(name: String) {
-            println("deu certo!");
-        }
-    }
-    ```
-<br>
-
-3. Instanciamos a Classe e utilizamos o method.
-    ```kotlin
-    fun main(args: Array<String>) {
-        val p1: Person = Person("camila", 2);
-        p1.printComum("daora"); //chamamos o method da interface
-    }
-    ```
-   
-<hr>
-<br>
-
-### Usando lambda ficaria assim:
-
-```kotlin
-//utilizando lambda
-val lambdaInsano = MethodsInsanos { nome1, nome2 -> println("Salve $nome1 e $nome2")}
-lambdaInsano.printComum("goku1", "goku2");
-```
-
-:book: Nao precisa se afobar. Isso eh soh para entendimento. No dia a dia vamos usar as expressoes lambda de uma outra abordagem.
-
-<hr>
-<br>
 
 
 ## Lambda
