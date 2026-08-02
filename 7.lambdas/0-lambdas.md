@@ -3,14 +3,12 @@
 Antes de aprendermos a syntax da expressão lambda no Kotlin, vamos relembrar alguns conceitos importantes.
 
 <hr>
-<br>
-
-
 
 ## Lambda
 
-Lambda serve para conseguirmos utilizar methods de uma interface funcional de uma maneira mais rápida e simples, sem precisar criar uma classe para isso, como vimos acima.
+Lambda serve para conseguirmos utilizar methods de uma interface funcional de uma maneira mais simples, sem precisar criar uma classe para isso.
 
+Não precisa escrever esse código novamente, apenas relembre como o fluxo de utilizar um method de uma interface funciona. [Clique  aqui](../6.classes_objetos/3.interfaces_classe_abstrata/0.interfaces.md#como-usamos-um-method-de-uma-interface)
 
 ### Syntax
 
