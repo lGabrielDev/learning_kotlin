@@ -1,14 +1,18 @@
 # Expressões lambdas
 
-Antes de aprendermos a syntax da expressão lambda no Kotlin, vamos relembrar alguns conceitos importantes.
+## Relembrando como utilizar um method de uma interface
+Antes de entender o que são expressões lambda, vamos relembrar como fazemos para utilizar um method de uma interface. [Clique  aqui](../6.classes_objetos/3.interfaces_classe_abstrata/0.interfaces.md#como-usamos-um-method-de-uma-interface)
 
 <hr>
 
-## Lambda
+## Functional Interface
 
-Lambda serve para conseguirmos utilizar methods de uma interface funcional de uma maneira mais simples, sem precisar criar uma classe para isso.
+É uma interface com apenas **1 method abstrato**. Pode ter vários methods com corpo, mas abstratos deve ter somente 1.
 
-Não precisa escrever esse código novamente, apenas relembre como o fluxo de utilizar um method de uma interface funciona. [Clique  aqui](../6.classes_objetos/3.interfaces_classe_abstrata/0.interfaces.md#como-usamos-um-method-de-uma-interface)
+<hr>
+
+## 
+
 
 ### Syntax
 
