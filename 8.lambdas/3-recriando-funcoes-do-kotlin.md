@@ -221,8 +221,8 @@ fun <T, R> Iterable<T>.mapNaMao(
 }
 ```
 
-### Relembrando regrinha do Generics
+## Relembrando as regrinhas do Generics
 
-> :book: Ao criar uma função com Generics, colocamos os tipos genéricos antes do nome da função. Ao chamar a função, o Kotlin identifica automaticamente quais são esses tipos com base nos argumentos e no retorno.
+> :book: Ao criar uma função com Generics, colocamos o tipo genérico antes do nome da função. Ao chamar a função, o Kotlin identifica automaticamente o tipo utilizado.
 
-
+> :book: Ao criar uma classe com Generics, colocamos o tipo genérico depois do nome da classe. Ao instanciar um objeto, precisamos informar o tipo que será utilizado.
