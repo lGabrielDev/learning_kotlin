@@ -84,4 +84,9 @@ fun filter(
 
 <hr>
 
+
+## Exemplo passando a lista como um dos parametros
+
+## Exemplo igualzinho como o kotlin cria, usando as extension functions.
+
 ## map
