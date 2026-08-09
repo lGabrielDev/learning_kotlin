@@ -192,7 +192,7 @@ No caso do `map()`, ele transforma cada elemento em um novo valor e retorna uma 
 
 Precisamos ter em mente duas coisas:
 
-- O `map()` pode ser usado com listas de qualquer tipo, como `List<Int>`, `List<String>`, `List<Person>`, etc.
+- O `map()` pode ser usado com listas de qualquer tipo, como `List<Int>`, `List<String>`, `List<Person>`, etc. Ou seja, precisa ser uma `List<T>`
 - O `map()` pode retornar uma lista de um tipo diferente do tipo original.
 
 Como o `map()` pode receber uma lista de um tipo e retornar uma nova lista com outro tipo, precisamos usar Generics para deixar a função flexível.
