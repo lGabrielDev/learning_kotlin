@@ -47,35 +47,6 @@ Mesmo tendo uma condicao false, o codigo foi loopado 1 vez.
 
 ## `for()`
 
-### Percorrendo um range de numeros
-
-```kotlin
-fun main(args: Array<String>) {
-    
-    for(i: Int in 0..25){
-        println(i);
-    }
-}
-```
-
-📖 Assim como ao percorrer uma lista com `for`, aqui também temos uma variável `i` que representa cada valor do intervalo.
-
-<br>
-
-### Percorrendo as letras de uma String
-
-```kotlin
-fun main(args: Array<String>) {
-
-    val palavraInsana: String = "goku insano";
-
-    for(i: Char in palavraInsana){
-        println(i);
-    }
-}
-```
-
-<br>
 
 ### Percorrendo uma lista qualquer
 
@@ -94,4 +65,34 @@ fun main(args: Array<String>) {
 }
 ```
 
-:warning: Também temos o `forEach{}` mas nao vamos aprender ele agora. Fica calmo.
+Igualzinho ao Java. Temos uma variable/objeto `i` que representa cada item da lista.
+
+<br>
+
+### Percorrendo as letras de uma String
+
+```kotlin
+fun main(args: Array<String>) {
+
+    val palavraInsana: String = "goku insano";
+
+    for(i: Char in palavraInsana){
+        println(i);
+    }
+}
+```
+
+<br>
+
+### Percorrendo um range de numeros
+
+```kotlin
+fun main(args: Array<String>) {
+    
+    for(i: Int in 0..25){
+        println(i);
+    }
+}
+```
+
+📖 Funciona da mesma forma. Estamos percorrendo uma lista / estrutura de algum tipo de dado. Nesse caso, é uma lista de inteiros.
