@@ -106,24 +106,23 @@ fun main(args: Array<String>) {
 
 <br>
 
-### Percorrendo os indices da lista
+### Percorrendo os `indices` da lista
 
-:pencil2: Crie uma lista e altere os valores dos itens que são pares.
+:pencil2: Crie uma lista e substitua os valores dos itens que são null
 
 ```kotlin
 fun main(args: Array<String>) {
 
-    val lista: MutableList<String> = mutableListOf(
+    val lista: MutableList<String?> = mutableListOf(
         "carlos",
-        "rosana",
-        "amanda",
-        "pedro"
-    );
+        null,
+        null,
+        "jason",
+        null,
+        "amanda"
+    )
 
-    for(i in lista.indices){
-        if(i % 2 == 0) lista[i] = "personagem PAR";
-    }
-
-    lista.forEach { println(it) }
+    for(i in lista.indices){ if( lista[i] == null ) lista[i] = "value not found" }
+    lista.forEach{println(it)}
 }
 ```
