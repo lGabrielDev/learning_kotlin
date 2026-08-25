@@ -92,10 +92,12 @@ enum class TarefaOneClick(
         //attributos staticos
 
         //methods staticos
-        fun isTarefaValid(tarefa: String): Boolean = TarefaOneClick.values().any { it -> tarefa == it.nome }
+        fun isTarefaValid(tarefa: String): Boolean = TarefaOneClick.values().any { it.nome == tarefa }
     }
 }
 ```
+
+:book: `Enum.values()` trás uma lista com todas as contantes desse enum.
 
 <br>
 <hr>
