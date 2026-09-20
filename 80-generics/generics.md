@@ -4,7 +4,7 @@ Generics é uma forma de criar Classes e funções que podem trabalhar com difer
 
 ---
 
-## Trabalhando com funcoes genericas
+## Generics em funcoes
 
 ### Exemplo 1
 
@@ -72,7 +72,7 @@ class Calculos() {
 
 ---
 
-## Criando uma Classe utilizando Generics
+## Generics em Classes
 
 Quando usamos Generics em uma classe, significa que um ou mais atributos da classe terão um tipo genérico. O tipo será definido quando criarmos um objeto dessa classe.
 
