@@ -4,114 +4,104 @@
 
 Uma maneira de adicionar funções a uma Classe, sem alterar o código dessa Classe.
 
-Geralmente usamos quando precisamos adicionar funções a uma classe que não podemos ou não queremos modificar. Por exemplo, a classe `String` do Kotlin não pode ser alterada, mas podemos adicionar novas funções a ela através das **Extension Functions**.
+Geralmente usamos quando queremos adicionar uma função a uma Classe que não podemos ou não queremos modificar.
 
---- 
-
-## Exemplo simples 1
-
-:pencil2: Imagine uma função que retorne a primeira letra de uma String
-
-### Maneira tradicional
-
-Passamos um parametro
-
-```kotlin
-fun main(args: Array<String>) {
-    println( primeiraLetra("texto insano") );
-}
-
-fun primeiraLetra(texto: String): Char = texto[0];
-```
-
-### Usando extension function
-
-Como estamos "criando" uma função dentro da Classe `String`, precisamos chamar essa função através de um objeto dessa Classe.
-
-```kotlin
-fun main(args: Array<String>) {
-    println( "texto insano".primeiraLetraExtensionFunction() );
-}
-
-fun String.primeiraLetra(): Char = this[0];
-```
+Por exemplo, não podemos alterar a Classe `String` do Kotlin, mas podemos criar novas funções para ela utilizando **Extension Functions**.
 
 ---
 
-## Exemplo simples 2
+## Exemplo 1
 
-:pencil2: Crie uma funcao para somar 2 numeros.
-
-### Maneira tradicional
-
-Passamos um parametro
-
-```kotlin
-fun main(args: Array<String>) {
-    println( somarComAlgumNumero(1, 2) );
-}
-
-fun somarComAlgumNumero(n1: Int, n2: Int): Int = n1 + n2;
-```
-
-### Usando extension function
-
-Como a funcao foi "criada" dentro de uma Classe, chamamos ela através de um objeto da Classe.
-
-```kotlin
-fun main(args: Array<String>) {
-    println( 45.somarComAlgumNumero(1) );
-}
-
-fun Int.somarComAlgumNumero(n1: Int): Int = this + n1;
-```
-
----
-
-## Conflito de nomes entre Extension Function e função da classe
-
-> :book: Se uma Extension Function tiver o mesmo nome de uma função que já existe na classe, a função da própria classe terá prioridade.
-
-:pencil2: Crie uma funcao dentro de uma Class "Person"
+:pencil2: Imagine que queremos criar uma função que retorne a primeira letra de uma `String`.
 
 ### Maneira tradicional
 
-Nós mesmos que criamos a class "Person", entao podemos criar o method ali mesmo.
+Criamos uma função e passamos a `String` como parâmetro:
 
 ```kotlin
-class Person (
-    val name: String,
-    val age: Int
-) {
-    fun apresentarPessoa(): Unit {
-        println(
-            """
-            Olá, sou o ${this.name} e tenho ${this.age} anos.
-            """.trimIndent()
-        );
-    }
+fun getFirstLetter(texto: String): Char {
+    return texto[0]
 }
 
-
 fun main(args: Array<String>) {
-    val p1: Person = Person("goku", 33);
-    p1.apresentarPessoa();
+    println(getFirstLetter("texto insano"))
 }
 ```
 
-### Usando extension function
+### Usando Extension Function
+
+Podemos criar essa função como uma extensão da Classe `String`:
+
+```kotlin
+fun String.getFirstLetter(): Char {
+    return this[0]
+}
+```
+
+Agora podemos chamar a função diretamente através de qualquer objeto `String`:
 
 ```kotlin
 fun main(args: Array<String>) {
-    val p1: Person = Person("goku", 33);
-    p1.apresentarPessoa();
-}
-
-fun Person.apresentarPessoa(): Unit {
+    val texto: String = "texto insano";
     println(
-        """
-                Olá 22222222, sou o ${this.name} e tenho ${this.age} anos.
-            """.trimIndent()
-    );
+        texto.getFirstLetter()
+    )
 }
 ```
+
+> :book: O `this` representa o objeto que chamou a Extension Function. Nesse exemplo, `this` representa `"texto insano"`.
+
+---
+
+## Exemplo 2
+
+:pencil2: Crie uma função para somar 2 números. (Não se preocupe com generics agora)
+
+### Maneira tradicional
+
+```kotlin
+fun somar(n1: Int, n2: Int): Int = n1 + n2;
+
+fun main(args: Array<String>) {
+    println(somar(10, 5))
+}
+```
+
+### Usando Extension Function
+
+```kotlin
+fun Int.somar(n1: Int): Int = this + n1;
+
+fun main(args: Array<String>) {
+
+    val numeroInsano = 44;
+    println(numeroInsano.somar(10));
+
+}
+```
+
+> :book: O `this` representa o objeto que chamou a função. Nesse caso, `this` representa `numeroInsano`, que possui o valor `44`.  
+
+
+
+---
+
+## Exemplo 3
+
+:pencil2: Crie uma função toString() para a class Person, utilizando extension function
+
+```kotlin
+fun main(args: Array<String>) {
+    val p1 = Person("sonic", 22);
+    println(p1.toStringNaMao());
+}
+
+fun Person.toStringNaMao(): String = """
+    Name: ${this.name}
+    Age: ${this.age}
+""".trimIndent()
+```
+
+
+
+> :warning: A prioridade é sempre da função da própria Classe. Se criarmos uma Extension Function com o mesmo nome de uma função que já existe na Classe, a função da Classe será chamada.

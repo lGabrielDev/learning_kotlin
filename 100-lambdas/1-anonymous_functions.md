@@ -1,43 +1,56 @@
 # Anonymous Functions
 
-Da mesma forma que podemos criar uma Classe sem nome (Anonymous Class), também podemos criar uma **função sem nome** (Anonymous Function).
+Da mesma forma que podemos criar uma Classe sem nome (**Anonymous Class**), também podemos criar uma **função sem nome (Anonymous Function)**.
 
-Geralmente criamos uma Anonymous Function quando precisamos de uma função temporária, que será utilizada apenas naquele momento. Um dos cenários mais comuns é **passar uma função como parâmetro para outra função**.
-<hr>
+Estamos acostumados a criar funções com parâmetros de tipos como `String`, `Double`, `Pessoa`, `Carro`, `Int`, etc.
+
+O legal é que, no Kotlin, uma função também pode ter **parâmetros do tipo função**.
+
+---
 
 ## Syntax
-Vamos usar um exemplo onde, existe uma funcao e um dos parametros dela é uma funcao anonima.
+
+Vamos usar um exemplo onde uma funcao vai receber 2 parametros:
+
+- uma funcao sem nome
+- uma String
 
 ```kotlin
-
-fun funcaoPrincipal(
-    name: String,               //parametro comum
-    funcaoCallback: () -> Unit  //parametro do tipo function
-): Unit {
-    funcaoCallback();
+fun executar(
+    funcao: () -> Unit, //parametro do tipo funcao
+    mensagemSucesso: String //parametro normal
+){
+    funcao();
+    println(mensagemSucesso);
 }
 ```
 
+Quando chamamos uma função que possui um parâmetro do tipo função, preencher esse argumento com uma **Anonymous Function / funcao sem nome**.
 
 ```kotlin
 fun main(args: Array<String>) {
-
-    // Maneira antiga
-    funcaoPrincipal(
-        "goku",
-        fun () {
-            println("salve 1")
-            //...
-        }
-    )
     
-    // Usando lambda
-    funcaoPrincipal("goku"){
-        println("salve 1")
-        //...
-    }
-    
+    executar(
+        fun(){ //funcao anonima / funcao sem nome
+            println("call back insano")
+        },
+        
+        "funcao executada com sucesso"
+    );
 }
 ```
 
-> :book: Se o último parâmetro de uma função for do tipo função, o argumento desse parametro pode ser informado fora dos parênteses `()` .
+Deixando mais simples ainda
+
+```kotlin
+fun main(args: Array<String>) {
+    
+    executar(
+        { //funcao anonima / funcao sem nome
+            println("call back insano")
+        },
+        
+        "funcao executada com sucesso"
+    );
+}
+```
