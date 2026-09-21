@@ -1,39 +1,118 @@
-# Expressões lambdas
+# Expressões Lambda
 
 Uma **Expressão Lambda** é uma forma mais simples de escrever uma **Anonymous Function (função anônima)**.
 
-No Kotlin, normalmente utilizamos Lambdas quando precisamos passar uma função como argumento para outra função (Callback Function).
+No Kotlin, é muito comum utilizarmos Lambdas quando precisamos passar uma função como argumento para outra função (**Callback Function**).
 
-> :book: No dia a dia do Kotlin, é muito mais comum encontrar Lambdas do que Anonymous Functions escritas com a sintaxe tradicional (`fun`).
+> :book: No dia a dia do Kotlin, é muito mais comum encontrar Lambdas do que Anonymous Functions escritas utilizando `fun()`.
 
-<hr>
-
+---
 
 ## Syntax
 
-Foque em como funciona os parametros de uma expressao lambda (funcao anonima).
-
-Para deixar mais facil, vamos criar uma variavel e armazenar uma funcao. Logo, eh uma variable do tipo funcao.
-
+Vamos utilizar uma função que recebe uma Callback:
 
 ```kotlin
-fun main(args: Array<String>) {
-
-    //funcao anonima (lambda) sem parametros
-    val funcaoAnonima1: () -> Unit = { println("salve") }
-
-    //funcao anonima (lambda) com apenas 1 parametro
-    val funcaoAnonima2: (String) -> String = {
-        name -> name.uppercase(); //no lambda não precisamos usar a keyword 'return'. O último valor da Lambda é retornado automaticamente
-    }
-
-    //funcao anonima (lambda) com apenas 1 parametro - it
-    val funcaoAnonima3: (String) -> String = {it.uppercase()};
-
-    //lambda com varios parametros
-    val funcaoAnonima4: (Int, Int) -> Int = {n1, n2 -> n1 + n2}
-    
+fun executar(
+    funcaoCallback: () -> Unit
+) {
+    funcaoCallback()
 }
 ```
 
-> Quando a expressão Lambda recebe apenas **1 parâmetro**, podemos omitir o nome desse parâmetro. Nesse caso, o Kotlin cria automaticamente uma variável chamada `it`.
+Utilizando uma Anonymous Function:
+
+```kotlin
+executar(
+    fun() {
+        println("salve")
+    }
+)
+```
+
+Utilizando uma Lambda:
+
+```kotlin
+executar(
+    {
+        println("salve")
+    }
+)
+```
+
+Ou, como o parâmetro do tipo função é o último parâmetro:
+
+```kotlin
+executar {
+    println("salve")
+}
+```
+
+> :book: A Lambda permite escrever uma função anônima de forma muito mais simples, utilizando `{ }`.
+
+---
+
+## Lambda recebendo parâmetro
+
+```kotlin
+fun executar(
+    funcaoCallback: (String) -> Unit
+) {
+    funcaoCallback("goku")
+}
+```
+
+Podemos acessar o parâmetro dentro da Lambda:
+
+```kotlin
+executar { name ->
+    println(name)
+}
+```
+
+---
+
+## Utilizando `it`
+
+Quando a Lambda recebe apenas **1 parâmetro**, podemos omitir o nome desse parâmetro.
+
+Nesse caso, o Kotlin disponibiliza automaticamente o `it`:
+
+```kotlin
+executar {
+    println(it)
+}
+```
+
+Ou seja, esses dois exemplos fazem a mesma coisa:
+
+```kotlin
+executar { name ->
+    println(name)
+}
+
+executar {
+    println(it)
+}
+```
+
+> :book: Quando a Lambda possui apenas **1 parâmetro**, podemos utilizar `it` para representar esse parâmetro.
+
+--- 
+
+## Syntax em diferentes cenários
+
+| Cenário | Tipo da função | Lambda |
+|---|---|---|
+| Sem parâmetro e sem retorno | `() -> Unit` | `{ println("salve") }` |
+| 1 parâmetro e sem retorno | `(String) -> Unit` | `{ name -> println(name) }` |
+| 1 parâmetro usando `it` | `(String) -> Unit` | `{ println(it) }` |
+| 2 parâmetros e sem retorno | `(Int, Int) -> Unit` | `{ n1, n2 -> println(n1 + n2) }` |
+| 1 parâmetro e com retorno | `(String) -> String` | `{ name -> name.uppercase() }` |
+| 2 parâmetros e com retorno | `(Int, Int) -> Int` | `{ n1, n2 -> n1 + n2 }` |
+
+
+:book: Se uma funcao tem um parametro do 'tipo funcao', sei que vou precisar passar como argumento uma funcao anonima `{}`.
+
+- Posso passar essa funcao anonima da maneira tradicional `fun(){}`
+- Posso passar essa funcao anonima utilizando lambda.

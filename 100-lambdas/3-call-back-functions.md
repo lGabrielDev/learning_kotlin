@@ -1,12 +1,10 @@
 # Callback Functions
 
-Normalmente, em uma função, estamos acostumados a criar parâmetros com tipos como `String`, `Double`, `Long`, etc.
+No capítulo anterior, vimos que uma função pode receber outra função como argumento.
 
-No Kotlin, também podemos criar parâmetros do **tipo função**. Os argumentos desses parâmetros são preenchidos com uma **função anônima**, utilizando uma **expressão Lambda**.
+A função que passamos como argumento para outra função é chamada de **Callback Function**.
 
-Uma função passada como parâmetro para outra função é chamada de **Callback Function**.
-
-<hr>
+---
 
 ## Entendendo na prática
 No dia a dia, normalmente vamos passar esses argumentos para funções já prontas do Kotlin, como `filter`, `map`, `forEach`, `sortedBy`, etc.
@@ -44,12 +42,12 @@ fun funcaoPrincipal2(
 fun funcaoPrincipal3(
     n1: Double,
     n2: Double,
-    funcaoPrintarCallback: (Double) -> Unit,
-    funcaoPrintarCallbackVariasVezes: (Double) -> Unit
+    callbackPrintar: (Double) -> Unit,
+    callbackPrintarVariasVezes: (Double) -> Unit
 ): Unit {
-    val resultado: Double = n1 + n2;
-    funcaoPrintarCallback(resultado);
-    funcaoPrintarCallbackVariasVezes(resultado);
+    val resultado: Double = n1 + n2
+    callbackPrintar(resultado)
+    callbackPrintarVariasVezes(resultado)
 }
 
 // funcao com 1 parametro do 'tipo funcao', que retorna alguma coisa
@@ -65,11 +63,7 @@ fun funcaoPrincipal4(
 
 ### 2. Chamando essas funcoes e passando os argumentos
 
-A regrinha sempre vai ser:
-
-> :book: Sempre que o **último parâmetro** de uma função for do **tipo função**, o argumento pode ser informado dentro ou fora dos parênteses `()`. 
-> 
-> Geralmente utilizamos essa forma quando existe apenas um parâmetro do tipo função. Quando há vários parâmetros desse tipo, normalmente deixamos todos dentro dos `()` para facilitar a leitura.
+> :book: Quando o ultimo argumento de uma funcao for do tipo funcao / complexo, voce pode passar ele fora dos `()`.
 
 #### Passando o ultimo parametro do 'tipo funcao' dentro dos `()`
 
